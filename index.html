@@ -10,10 +10,28 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
-    <header>
-
+<body class="container-fluid">
+    <header class="row bg-info pb-3 pt-3">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9 text-center text-bg-info">
+            <h1>The Weather Station</h1>
+        </div>
     </header>
+
+    <main class="row pt-5">
+        <div class="col-sm-3">
+            <h2>Select Your City</h2>
+            <form id="search" class="">
+                <input id="search-text" class="form-control mb-3" type="text" placeholder="Search!">
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-block">Search</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+        <div class="col-sm-9">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, sunt? Perspiciatis, animi consectetur deserunt eligendi totam, voluptatibus facilis optio exercitationem assumenda impedit minus est quia soluta aspernatur qui, odio fugit!</div>
+
+    </main>
 
 
 
