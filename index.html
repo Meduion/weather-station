@@ -19,7 +19,7 @@
     </header>
 
     <main class="row pt-5">
-        <div class="col-sm-3">
+        <section class="col-sm-3">
             <h2>Select Your City</h2>
             <form id="search">
                 <input id="search-text" class="form-control mb-3" type="text" placeholder="Search!">
@@ -30,12 +30,22 @@
                 <div class="d-grid" id="search-field"></div>
             </form>
             
-        </div>
+        </section>
         <div class="col-sm-9">
-            <h2 class="d-inline" id="city-name"></h2><img id ="weather-icon" src="" alt="">
-            <h4 id="temp"></h3>
-            <h4 id="wind"></h3>
-            <h4 id="humidity"></h3>
+            <section>
+                <h2 class="d-inline" id="city-name"></h2><img id ="weather-icon" src="" alt="">
+                <h4 id="temp"></h4>
+                <h4 id="wind"></h4>
+                <h4 id="humidity"></h4>
+                <h3 class="pt-5" id="five-day-heading"></h3>
+            </section>
+            <section class="row">
+                <h5 class="col" id="day-one"></h5>
+                <h5 class="col" id="day-two"></h5>
+                <h5 class="col" id="day-three"></h5>
+                <h5 class="col" id="day-four"></h5>
+                <h5 class="col" id="day-five"></h5>
+            </section>
         </div>
 
     </main>
