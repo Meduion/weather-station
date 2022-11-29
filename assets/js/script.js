@@ -68,6 +68,7 @@ function searchButton(event) {
             .then(function (data) {
               console.log(data);
               fiveDayHeadingEl.textContent = 'Five Day Forecast:';
+              
               var dayOneDate = data.list[7].dt_txt;
               dayOneEl.textContent = dayOneDate;
               var dayOneImage = document.createElement('img');
@@ -91,12 +92,82 @@ function searchButton(event) {
 
               var dayTwoDate = data.list[15].dt_txt;
               dayTwoEl.textContent = dayTwoDate;
+              var dayTwoImage = document.createElement('img');
+              var dayTwoIcon = data.list[15].weather[0].icon;
+              dayTwoImage.src = 'http://openweathermap.org/img/wn/' + dayTwoIcon + '@2x.png'
+              dayTwoEl.appendChild(dayTwoImage);
+              var dayTwoTemp = document.createElement('h5');
+              var dayTwoTempReading = data.list[15].main.temp
+              dayTwoTemp.textContent = 'Temp: ' + dayTwoTempReading + ' ° C';
+              dayTwoEl.appendChild(dayTwoTemp);
+              var dayTwoWind = document.createElement('h5');
+              var dayTwoWindReading = data.list[15].wind.speed
+              dayTwoWind.textContent = 'Wind: ' + dayTwoWindReading + ' kph';
+              dayTwoEl.appendChild(dayTwoWind);
+              var dayTwoHumidity = document.createElement('h5');
+              var dayTwoHumidityReading = data.list[15].main.humidity
+              dayTwoHumidity.textContent = 'Humidity: ' + dayTwoHumidityReading + ' %';
+              dayTwoEl.appendChild(dayTwoHumidity);
+
+
               var dayThreeDate = data.list[23].dt_txt;
               dayThreeEl.textContent = dayThreeDate;
+              var dayThreeImage = document.createElement('img');
+              var dayThreeIcon = data.list[23].weather[0].icon;
+              dayThreeImage.src = 'http://openweathermap.org/img/wn/' + dayThreeIcon + '@2x.png'
+              dayThreeEl.appendChild(dayThreeImage);
+              var dayThreeTemp = document.createElement('h5');
+              var dayThreeTempReading = data.list[23].main.temp
+              dayThreeTemp.textContent = 'Temp: ' + dayThreeTempReading + ' ° C';
+              dayThreeEl.appendChild(dayThreeTemp);
+              var dayThreeWind = document.createElement('h5');
+              var dayThreeWindReading = data.list[23].wind.speed
+              dayThreeWind.textContent = 'Wind: ' + dayThreeWindReading + ' kph';
+              dayThreeEl.appendChild(dayThreeWind);
+              var dayThreeHumidity = document.createElement('h5');
+              var dayThreeHumidityReading = data.list[23].main.humidity
+              dayThreeHumidity.textContent = 'Humidity: ' + dayThreeHumidityReading + ' %';
+              dayThreeEl.appendChild(dayThreeHumidity);
+
+
               var dayFourDate = data.list[31].dt_txt;
               dayFourEl.textContent = dayFourDate;
+              var dayFourImage = document.createElement('img');
+              var dayFourIcon = data.list[31].weather[0].icon;
+              dayFourImage.src = 'http://openweathermap.org/img/wn/' + dayFourIcon + '@2x.png'
+              dayFourEl.appendChild(dayFourImage);
+              var dayFourTemp = document.createElement('h5');
+              var dayFourTempReading = data.list[31].main.temp
+              dayFourTemp.textContent = 'Temp: ' + dayFourTempReading + ' ° C';
+              dayFourEl.appendChild(dayFourTemp);
+              var dayFourWind = document.createElement('h5');
+              var dayFourWindReading = data.list[31].wind.speed
+              dayFourWind.textContent = 'Wind: ' + dayFourWindReading + ' kph';
+              dayFourEl.appendChild(dayFourWind);
+              var dayFourHumidity = document.createElement('h5');
+              var dayFourHumidityReading = data.list[31].main.humidity
+              dayFourHumidity.textContent = 'Humidity: ' + dayFourHumidityReading + ' %';
+              dayFourEl.appendChild(dayFourHumidity);
+
+
               var dayFiveDate = data.list[39].dt_txt;
               dayFiveEl.textContent = dayFiveDate;
+              var dayFiveImage = document.createElement('img');
+              var dayFiveIcon = data.list[39].weather[0].icon;
+              dayFiveImage.src = 'http://openweathermap.org/img/wn/' + dayFiveIcon + '@2x.png'
+              dayFiveEl.appendChild(dayFiveImage);
+              var dayFiveTemp = document.createElement('h5');
+              var dayFiveTempReading = data.list[39].main.temp
+              dayFiveTemp.textContent = 'Temp: ' + dayFiveTempReading + ' ° C';
+              dayFiveEl.appendChild(dayFiveTemp);
+              var dayFiveWind = document.createElement('h5');
+              var dayFiveWindReading = data.list[39].wind.speed
+              dayFiveWind.textContent = 'Wind: ' + dayFiveWindReading + ' kph';
+              dayFiveEl.appendChild(dayFiveWind);
+              var dayFiveHumidity = document.createElement('h5');
+              var dayFiveHumidityReading = data.list[39].main.humidity
+              dayFiveHumidity.textContent = 'Humidity: ' + dayFiveHumidityReading + ' %';
+              dayFiveEl.appendChild(dayFiveHumidity);
             })
         })
     });
