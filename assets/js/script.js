@@ -1,5 +1,9 @@
 var searchButtonEl = document.querySelector('#search');
-var searchField = document.querySelector('#search-field')
+var searchFieldEl = document.querySelector('#search-field')
+var cityNameEl = document.querySelector('#city-name')
+var tempEl = document.querySelector('#temp')
+var windEl = document.querySelector('#wind')
+var humidityEl = document.querySelector('#humidity')
 
 function searchButton (event) {
   event.preventDefault();
@@ -7,7 +11,6 @@ function searchButton (event) {
   var searchEntry = document.querySelector('#search-text').value;
   var apiKey = 'cf49844e3f54a62c370a39540478245f';
   var geoCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + searchEntry + '&appid=' + apiKey;
-  console.log(searchEntry);
   var lat;
   var lon;
 
@@ -21,20 +24,34 @@ function searchButton (event) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         for (var i = 0; i < data.length; i++) {
           lat = data[i].lat;
           // console.log(lat);
           lon = data[i].lon;
           // console.log(lon);
-          var citySearched = data[i].name + ', ' + data[i].state;
+          var citySearched = data[i].name + ', ' + data[i].state + ', ' + data[i].country;
           // console.log(citySearched);
           var pastSearch = document.createElement('button');
           pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
           pastSearch.textContent = citySearched;
-          searchField.appendChild(pastSearch);
+          searchFieldEl.appendChild(pastSearch);
         }
-        
+        var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=metric';
+        var cityName;
+
+        fetch(currentWeather)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+            cityNameEl.textContent = data.name + data.weather[0].icon;
+            tempEl.textContent = 'Current Temperature: ' + data.main.temp + ' ° C';
+            windEl.textContent = 'Current Wind Speed: ' + data.wind.speed + ' kph';
+            humidityEl.textContent = 'Current Humidity: ' + data.main.humidity + ' %';
+            
+          })
       });
 }
 
