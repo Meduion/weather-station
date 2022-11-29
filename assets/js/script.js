@@ -1,4 +1,5 @@
 var searchButtonEl = document.querySelector('#search');
+var searchField = document.querySelector('#search-field')
 
 function searchButton (event) {
   event.preventDefault();
@@ -17,26 +18,23 @@ function searchButton (event) {
 
   fetch(geoCoordinates)
       .then(function (response) {
-      return response.json();
+        return response.json();
       })
       .then(function (data) {
-      console.log(data);
-      for (var i = 0; i < data.length; i++) {
-        lat = data[i].lat;
-        console.log(lat);
-        lon = data[i].lon;
-        console.log(lon);
-        var citySearched = data[i].name + ', ' + data[i].state;
-        console.log(citySearched);
-      }
-      // for (var i = 0; i < data.length; i++) {
-      //     var userName = document.createElement('h3');
-      //     var issueTitle = document.createElement('p');
-      //     userName.textContent = data[i].user.login;
-      //     issueTitle.textContent = data[i].title;
-      //     issueContainer.append(userName);
-      //     issueContainer.append(issueTitle);
-      // }
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          lat = data[i].lat;
+          // console.log(lat);
+          lon = data[i].lon;
+          // console.log(lon);
+          var citySearched = data[i].name + ', ' + data[i].state;
+          // console.log(citySearched);
+          var pastSearch = document.createElement('button');
+          pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
+          pastSearch.textContent = citySearched;
+          searchField.appendChild(pastSearch);
+        }
+        
       });
 }
 
