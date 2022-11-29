@@ -11,20 +11,26 @@ var dayThreeEl = document.querySelector("#day-three")
 var dayFourEl = document.querySelector("#day-four")
 var dayFiveEl = document.querySelector("#day-five")
 
+// All code is written in a single function that fires when the search button is clicked.
 function searchButton(event) {
   event.preventDefault();
 
+  // Pulls the value from the text field of the search bar and adds it into the geo-location API to return coordinates.
   var searchEntry = document.querySelector('#search-text').value;
   var apiKey = 'cf49844e3f54a62c370a39540478245f';
   var geoCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + searchEntry + '&appid=' + apiKey;
+
+  // Undefined variables that will be defined later, placed here so they can be used in all parts of the function.
   var lat;
   var lon;
 
+  // Throws error to console if searchEntry bar is blank.
   if (!searchEntry) {
     console.error('You need a search input value!');
     return;
   }
 
+  // Fetches from the geo-coordinates API and defines the lat and lon variables.
   fetch(geoCoordinates)
     .then(function (response) {
       return response.json();
@@ -38,12 +44,15 @@ function searchButton(event) {
         // console.log(lon);
         var citySearched = data[i].name + ', ' + data[i].state + ', ' + data[i].country;
         // console.log(citySearched);
+
+        // This section creates a field of past searches and displays them below search bar
         var pastSearch = document.createElement('button');
         pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
         pastSearch.textContent = citySearched;
         searchFieldEl.appendChild(pastSearch);
       }
 
+      // Calls to the current weather API using the lat and lon gained from the geo-location API above
       var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=metric';
 
       fetch(currentWeather)
@@ -58,17 +67,22 @@ function searchButton(event) {
           tempEl.textContent = 'Current Temperature: ' + data.main.temp + ' ° C';
           windEl.textContent = 'Current Wind Speed: ' + data.wind.speed + ' kph';
           humidityEl.textContent = 'Current Humidity: ' + data.main.humidity + ' %';
-          
+
+          // Third fetch now to the 5 day forecast API, again using the lat and lon variables from above.
           var fiveDayForecast = 'https://api.openweathermap.org/data/2.5/forecast/?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=metric';
 
           fetch(fiveDayForecast)
-            .then(function(response) {
+            .then(function (response) {
               return response.json();
             })
             .then(function (data) {
               console.log(data);
               fiveDayHeadingEl.textContent = 'Five Day Forecast:';
               
+              /* Each section aligns to one of the display columns for the five day forecast. Is there a more
+              efficient method than this? The index numbers selected are 24 hours ahead of the user's current
+              time so will always show the weather for the time they're searching.
+              */
               var dayOneDate = data.list[7].dt_txt;
               dayOneEl.textContent = dayOneDate;
               var dayOneImage = document.createElement('img');
@@ -87,7 +101,6 @@ function searchButton(event) {
               var dayOneHumidityReading = data.list[7].main.humidity
               dayOneHumidity.textContent = 'Humidity: ' + dayOneHumidityReading + ' %';
               dayOneEl.appendChild(dayOneHumidity);
-
 
 
               var dayTwoDate = data.list[15].dt_txt;
