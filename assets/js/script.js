@@ -20,44 +20,44 @@ function searchButton (event) {
   }
 
   fetch(geoCoordinates)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        // console.log(data);
-        for (var i = 0; i < data.length; i++) {
-          lat = data[i].lat;
-          // console.log(lat);
-          lon = data[i].lon;
-          // console.log(lon);
-          var citySearched = data[i].name + ', ' + data[i].state + ', ' + data[i].country;
-          // console.log(citySearched);
-          var pastSearch = document.createElement('button');
-          pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
-          pastSearch.textContent = citySearched;
-          searchFieldEl.appendChild(pastSearch);
-        }
-        var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=metric';
-        var cityName;
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        lat = data[i].lat;
+        // console.log(lat);
+        lon = data[i].lon;
+        // console.log(lon);
+        var citySearched = data[i].name + ', ' + data[i].state + ', ' + data[i].country;
+        // console.log(citySearched);
+        var pastSearch = document.createElement('button');
+        pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
+        pastSearch.textContent = citySearched;
+        searchFieldEl.appendChild(pastSearch);
+     }
 
-        fetch(currentWeather)
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-            console.log(data);
-            cityNameEl.textContent = data.name + data.weather[0].icon;
-            tempEl.textContent = 'Current Temperature: ' + data.main.temp + ' ° C';
-            windEl.textContent = 'Current Wind Speed: ' + data.wind.speed + ' kph';
-            humidityEl.textContent = 'Current Humidity: ' + data.main.humidity + ' %';
+  var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=metric';
+
+  fetch(currentWeather)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      cityNameEl.textContent = data.name + '   ';
+      var icon = data.weather[0].icon;
+      document.querySelector('#weather-icon').src = 'http://openweathermap.org/img/wn/' + icon + '@2x.png'
+      tempEl.textContent = 'Current Temperature: ' + data.main.temp + ' ° C';
+      windEl.textContent = 'Current Wind Speed: ' + data.wind.speed + ' kph';
+      humidityEl.textContent = 'Current Humidity: ' + data.main.humidity + ' %';
             
-          })
-      });
+    })
+
+  
+  
+    });
 }
-
-//   var queryString = './search-results.html?q=' + searchEntry + '&format=';
-
-//   location.assign(queryString);
-
 
 searchButtonEl.addEventListener('submit', searchButton);
