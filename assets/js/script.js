@@ -70,6 +70,25 @@ function searchButton(event) {
               fiveDayHeadingEl.textContent = 'Five Day Forecast:';
               var dayOneDate = data.list[7].dt_txt;
               dayOneEl.textContent = dayOneDate;
+              var dayOneImage = document.createElement('img');
+              var dayOneIcon = data.list[7].weather[0].icon;
+              dayOneImage.src = 'http://openweathermap.org/img/wn/' + dayOneIcon + '@2x.png'
+              dayOneEl.appendChild(dayOneImage);
+              var dayOneTemp = document.createElement('h5');
+              var dayOneTempReading = data.list[7].main.temp
+              dayOneTemp.textContent = 'Temp: ' + dayOneTempReading + ' ° C';
+              dayOneEl.appendChild(dayOneTemp);
+              var dayOneWind = document.createElement('h5');
+              var dayOneWindReading = data.list[7].wind.speed
+              dayOneWind.textContent = 'Wind: ' + dayOneWindReading + ' kph';
+              dayOneEl.appendChild(dayOneWind);
+              var dayOneHumidity = document.createElement('h5');
+              var dayOneHumidityReading = data.list[7].main.humidity
+              dayOneHumidity.textContent = 'Humidity: ' + dayOneHumidityReading + ' %';
+              dayOneEl.appendChild(dayOneHumidity);
+
+
+
               var dayTwoDate = data.list[15].dt_txt;
               dayTwoEl.textContent = dayTwoDate;
               var dayThreeDate = data.list[23].dt_txt;
