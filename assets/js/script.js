@@ -28,7 +28,7 @@ function displayCurrentWeather(lat, lon, apiKey) {
       // console.log(data);
       cityNameEl.textContent = data.name + '   ';
       var icon = data.weather[0].icon;
-      document.querySelector('#weather-icon').src = 'http://openweathermap.org/img/wn/' + icon + '@2x.png'
+      document.querySelector('#weather-icon').src = 'https://openweathermap.org/img/wn/' + icon + '@2x.png'
       tempEl.textContent = 'Current Temperature: ' + data.main.temp + ' ° C';
       windEl.textContent = 'Current Wind Speed: ' + data.wind.speed + ' kph';
       humidityEl.textContent = 'Current Humidity: ' + data.main.humidity + ' %';
