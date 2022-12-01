@@ -96,7 +96,7 @@ function searchButton(event) {
   // Pulls the value from the text field of the search bar and adds it into the geo-location API to return coordinates.
   var searchEntry = document.querySelector('#search-text').value;
   var apiKey = 'cf49844e3f54a62c370a39540478245f';
-  var geoCoordinates = 'httpsgit com://api.openweathermap.org/geo/1.0/direct?q=' + searchEntry + '&appid=' + apiKey;
+  var geoCoordinates = 'https://api.openweathermap.org/geo/1.0/direct?q=' + searchEntry + '&appid=' + apiKey;
 
   // Throws error to console if searchEntry bar is blank.
   if (!searchEntry) {
