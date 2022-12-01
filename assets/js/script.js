@@ -12,7 +12,6 @@ function displayPastSearches(citySearched) {
   var pastSearch = document.createElement('button');
   pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
   pastSearch.textContent = citySearched;
-  pastSearch.disabled = true;
   searchFieldEl.appendChild(pastSearch);
 }
 
