@@ -26,7 +26,7 @@ function displayCurrentWeather(lat, lon, apiKey) {
     })
     .then(function (data) {
       // console.log(data);
-      cityNameEl.textContent = data.name + '   ';
+      cityNameEl.textContent = data.name + '   ' + dayjs().format('YYYY-MM-DD') + '   ';
       var icon = data.weather[0].icon;
       document.querySelector('#weather-icon').src = 'https://openweathermap.org/img/wn/' + icon + '@2x.png'
       tempEl.textContent = 'Current Temperature: ' + data.main.temp + ' ° C';
