@@ -70,7 +70,7 @@ function displayForecast(lat, lon, apiKey) {
           dayElement.textContent = date;
           var image = document.createElement('img');
           var icon = data.list[i].weather[0].icon;
-          image.src = 'http://openweathermap.org/img/wn/' + icon + '@2x.png'
+          image.src = 'https://openweathermap.org/img/wn/' + icon + '@2x.png'
           dayElement.appendChild(image);
           var temp = document.createElement('h5');
           var tempReading = data.list[i].main.temp
@@ -96,7 +96,7 @@ function searchButton(event) {
   // Pulls the value from the text field of the search bar and adds it into the geo-location API to return coordinates.
   var searchEntry = document.querySelector('#search-text').value;
   var apiKey = 'cf49844e3f54a62c370a39540478245f';
-  var geoCoordinates = 'http://api.openweathermap.org/geo/1.0/direct?q=' + searchEntry + '&appid=' + apiKey;
+  var geoCoordinates = 'httpsgit com://api.openweathermap.org/geo/1.0/direct?q=' + searchEntry + '&appid=' + apiKey;
 
   // Throws error to console if searchEntry bar is blank.
   if (!searchEntry) {
