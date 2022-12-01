@@ -10,6 +10,7 @@ var dayTwoEl = document.querySelector("#day-two")
 var dayThreeEl = document.querySelector("#day-three")
 var dayFourEl = document.querySelector("#day-four")
 var dayFiveEl = document.querySelector("#day-five")
+var forecastEl= document.querySelector('#forecastEl');
 
 // All code is written in a single function that fires when the search button is clicked.
 function searchButton(event) {
@@ -83,107 +84,72 @@ function searchButton(event) {
               efficient method than this? The index numbers selected are 24 hours ahead of the user's current
               time so will always show the weather for the time they're searching.
               */
-              var dayOneDate = data.list[7].dt_txt;
-              dayOneEl.textContent = dayOneDate;
-              var dayOneImage = document.createElement('img');
-              var dayOneIcon = data.list[7].weather[0].icon;
-              dayOneImage.src = 'http://openweathermap.org/img/wn/' + dayOneIcon + '@2x.png'
-              dayOneEl.appendChild(dayOneImage);
-              var dayOneTemp = document.createElement('h5');
-              var dayOneTempReading = data.list[7].main.temp
-              dayOneTemp.textContent = 'Temp: ' + dayOneTempReading + ' ° C';
-              dayOneEl.appendChild(dayOneTemp);
-              var dayOneWind = document.createElement('h5');
-              var dayOneWindReading = data.list[7].wind.speed
-              dayOneWind.textContent = 'Wind: ' + dayOneWindReading + ' kph';
-              dayOneEl.appendChild(dayOneWind);
-              var dayOneHumidity = document.createElement('h5');
-              var dayOneHumidityReading = data.list[7].main.humidity
-              dayOneHumidity.textContent = 'Humidity: ' + dayOneHumidityReading + ' %';
-              dayOneEl.appendChild(dayOneHumidity);
-
-
-              var dayTwoDate = data.list[15].dt_txt;
-              dayTwoEl.textContent = dayTwoDate;
-              var dayTwoImage = document.createElement('img');
-              var dayTwoIcon = data.list[15].weather[0].icon;
-              dayTwoImage.src = 'http://openweathermap.org/img/wn/' + dayTwoIcon + '@2x.png'
-              dayTwoEl.appendChild(dayTwoImage);
-              var dayTwoTemp = document.createElement('h5');
-              var dayTwoTempReading = data.list[15].main.temp
-              dayTwoTemp.textContent = 'Temp: ' + dayTwoTempReading + ' ° C';
-              dayTwoEl.appendChild(dayTwoTemp);
-              var dayTwoWind = document.createElement('h5');
-              var dayTwoWindReading = data.list[15].wind.speed
-              dayTwoWind.textContent = 'Wind: ' + dayTwoWindReading + ' kph';
-              dayTwoEl.appendChild(dayTwoWind);
-              var dayTwoHumidity = document.createElement('h5');
-              var dayTwoHumidityReading = data.list[15].main.humidity
-              dayTwoHumidity.textContent = 'Humidity: ' + dayTwoHumidityReading + ' %';
-              dayTwoEl.appendChild(dayTwoHumidity);
-
-
-              var dayThreeDate = data.list[23].dt_txt;
-              dayThreeEl.textContent = dayThreeDate;
-              var dayThreeImage = document.createElement('img');
-              var dayThreeIcon = data.list[23].weather[0].icon;
-              dayThreeImage.src = 'http://openweathermap.org/img/wn/' + dayThreeIcon + '@2x.png'
-              dayThreeEl.appendChild(dayThreeImage);
-              var dayThreeTemp = document.createElement('h5');
-              var dayThreeTempReading = data.list[23].main.temp
-              dayThreeTemp.textContent = 'Temp: ' + dayThreeTempReading + ' ° C';
-              dayThreeEl.appendChild(dayThreeTemp);
-              var dayThreeWind = document.createElement('h5');
-              var dayThreeWindReading = data.list[23].wind.speed
-              dayThreeWind.textContent = 'Wind: ' + dayThreeWindReading + ' kph';
-              dayThreeEl.appendChild(dayThreeWind);
-              var dayThreeHumidity = document.createElement('h5');
-              var dayThreeHumidityReading = data.list[23].main.humidity
-              dayThreeHumidity.textContent = 'Humidity: ' + dayThreeHumidityReading + ' %';
-              dayThreeEl.appendChild(dayThreeHumidity);
-
-
-              var dayFourDate = data.list[31].dt_txt;
-              dayFourEl.textContent = dayFourDate;
-              var dayFourImage = document.createElement('img');
-              var dayFourIcon = data.list[31].weather[0].icon;
-              dayFourImage.src = 'http://openweathermap.org/img/wn/' + dayFourIcon + '@2x.png'
-              dayFourEl.appendChild(dayFourImage);
-              var dayFourTemp = document.createElement('h5');
-              var dayFourTempReading = data.list[31].main.temp
-              dayFourTemp.textContent = 'Temp: ' + dayFourTempReading + ' ° C';
-              dayFourEl.appendChild(dayFourTemp);
-              var dayFourWind = document.createElement('h5');
-              var dayFourWindReading = data.list[31].wind.speed
-              dayFourWind.textContent = 'Wind: ' + dayFourWindReading + ' kph';
-              dayFourEl.appendChild(dayFourWind);
-              var dayFourHumidity = document.createElement('h5');
-              var dayFourHumidityReading = data.list[31].main.humidity
-              dayFourHumidity.textContent = 'Humidity: ' + dayFourHumidityReading + ' %';
-              dayFourEl.appendChild(dayFourHumidity);
-
-
-              var dayFiveDate = data.list[39].dt_txt;
-              dayFiveEl.textContent = dayFiveDate;
-              var dayFiveImage = document.createElement('img');
-              var dayFiveIcon = data.list[39].weather[0].icon;
-              dayFiveImage.src = 'http://openweathermap.org/img/wn/' + dayFiveIcon + '@2x.png'
-              dayFiveEl.appendChild(dayFiveImage);
-              var dayFiveTemp = document.createElement('h5');
-              var dayFiveTempReading = data.list[39].main.temp
-              dayFiveTemp.textContent = 'Temp: ' + dayFiveTempReading + ' ° C';
-              dayFiveEl.appendChild(dayFiveTemp);
-              var dayFiveWind = document.createElement('h5');
-              var dayFiveWindReading = data.list[39].wind.speed
-              dayFiveWind.textContent = 'Wind: ' + dayFiveWindReading + ' kph';
-              dayFiveEl.appendChild(dayFiveWind);
-              var dayFiveHumidity = document.createElement('h5');
-              var dayFiveHumidityReading = data.list[39].main.humidity
-              dayFiveHumidity.textContent = 'Humidity: ' + dayFiveHumidityReading + ' %';
-              dayFiveEl.appendChild(dayFiveHumidity);
+              for (var i = 0; i < data.list.length; i++) {
+                var Date = data.list[i].dt_txt;
+                  if (Date.endsWith('15:00:00')) {
+                  var dayElement = document.createElement('div');
+                  dayElement.textContent = Date;
+                  var Image = document.createElement('img');
+                  var Icon = data.list[i].weather[0].icon;
+                  Image.src = 'http://openweathermap.org/img/wn/' + Icon + '@2x.png'
+                  dayElement.appendChild(Image);
+                  var Temp = document.createElement('h5');
+                  var TempReading = data.list[i].main.temp
+                  Temp.textContent = 'Temp: ' + TempReading + ' ° C';
+                  dayElement.appendChild(Temp);
+                  var Wind = document.createElement('h5');
+                  var WindReading = data.list[i].wind.speed
+                  Wind.textContent = 'Wind: ' + WindReading + ' kph';
+                  dayElement.appendChild(Wind);
+                  var Humidity = document.createElement('h5');
+                  var HumidityReading = data.list[i].main.humidity
+                  Humidity.textContent = 'Humidity: ' + HumidityReading + ' %';
+                  dayElement.appendChild(Humidity);
+                  dayElement.classList.add('col')
+                  forecastEl.appendChild(dayElement);
+                }
+              }
             })
         })
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function displayPastSearches () {
+//   var pastSearch = document.createElement('button');
+//   pastSearch.classList.add('btn', 'btn-primary', 'btn-block');
+//   pastSearch.textContent = citySearched;
+//   searchFieldEl.appendChild(pastSearch);
+// }
+
+
+
+// function displayCurrentWeather () {
+
+// }
+
+// function displayForecast() {
+
+// }
+
+
+
+
+
+
+
+
 
 searchButtonEl.addEventListener('submit', searchButton);
