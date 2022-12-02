@@ -24,6 +24,10 @@ Used a stackoverflow reply from Ivan Sivak to remove old search elements and mak
 https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
 
 Tutor Alistair Rowden assisted in optimizing the javascript, breaking it into discrete functions, and introducing the endsWith function to pull specific time data for the five day forecast.
+
+## Known Bugs
+
+Does not yet research when old buttons are clicked. Have been working on it but have not yet found solution.
   
 ## License
   
